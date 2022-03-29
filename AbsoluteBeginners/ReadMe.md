@@ -73,6 +73,50 @@ it is used to display the nodes available in the cluster .
 Pods comes into the picture after the application has been deployed to docker hub .<br>
 We also assume that the Kubernetes cluster has also been set up and is working .
 
+> Kubernetes does not deploy containers directly on the worker node .
+
+The containers are encapsulated in to a Kubernetes object as pods .<br>
+A pod is a single instance of an application .<br>
+A pod is a smallest object that we can create in Kuberenetes .<br>
+
+One Node can accomodate multiple pods .
+
+> Basically , Pods usually have a one to one relationship with containers running in your applications .
+
+A pod can have multiple containers running inside it; provided the are not of the same kind .<br>
+You can not run two python containers inside one pod.<br>
+you can run one python container and one sql container in one pod .<br>
+The two containers inside the pod can communicate with each other as they share the same local host .
+
+**Now lets see how to deploy to pods**<br>
+
+```kubectl
+
+kubectl run nginx
+
+```
+
+when we run this command, it creates a pod and deploys the nginx image inside the pod .<br>
+But where does it know where to get the image from ?<br>
+for that we need to append the above command with **--image nginx**<br>
+so now the commands becomes
+
+```
+kubectl run nginx --image nginx
+```
+
+## Pods with YAML
+
+in this section,we will create a pod using a YAML based configuration .
+
+Kubernetes uses YAML files as inputs for creation of the objects such as <br>
+pods, replicas, deployments, services etc 
+
+
+
+
+
+
 
 
 
